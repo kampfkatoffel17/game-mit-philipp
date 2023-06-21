@@ -7,17 +7,21 @@ public class playerController : MonoBehaviour
 {
     public float speed = 6f;
     public float jumpforce = 6f;
+    public Vector3 move;
     
     private bool isjumping = true;
+
+    //Variablen für drehen
     public Vector2 turn;
-    public float sensitivity = 1F;
+    public float sensitivity = .5f;
 
-    
 
-    private Rigidbody rb;
+
+
+    public Rigidbody rb;
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+       
 
 
     }
@@ -26,23 +30,22 @@ public class playerController : MonoBehaviour
     void Update()
     {
         //movement
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+        move.x = Input.GetAxis("Horizontal");
+        move.y = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(moveHorizontal, 0f, moveVertical);
-        rb.AddForce(movement * speed);
+        transform.Translate(move.x, 0, move.y );
+        
         
         
         //Jump
         if (Input.GetButton("Jump") && isjumping == false)
         {
-            rb.AddForce(Vector3.up * jumpforce, ForceMode.VelocityChange);
+            rb.AddForce(Vector3.up * jumpforce, ForceMode.Impulse);
             isjumping = true;
         }
-        // dreht sich bei cameradreh
-        turn.x += Input.GetAxis("Mouse X") * sensitivity;
-        transform.localRotation = Quaternion.Euler(0, turn.x, 0);
 
+        turn.x += Input.GetAxisRaw("Mouse X") * sensitivity;
+        transform.localRotation = Quaternion.Euler(0, turn.x, 0);
 
     }
     //collisionsdetection
@@ -57,6 +60,8 @@ public class playerController : MonoBehaviour
 
     }
     
+  
+   
 
 
 }
