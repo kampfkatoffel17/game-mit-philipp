@@ -43,11 +43,12 @@ public class playerController : MonoBehaviour
         turn.x += Input.GetAxis("Mouse X") * sensitivity;
         transform.localRotation = Quaternion.Euler(0, turn.x, 0);
 
+
     }
     //collisionsdetection
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Boden")
+        if (collision.gameObject.name == "Boden")
         {
 
             isjumping = false;
@@ -55,15 +56,7 @@ public class playerController : MonoBehaviour
        
 
     }
-    void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == "Boden")
-        {
-            isjumping = true;
-
-
-        }
-    }
+    
 
 
 }
