@@ -15,6 +15,14 @@ public class playerController : MonoBehaviour
     public Vector2 turn;
     public float sensitivity = .5f;
 
+    //andere Sachen
+    public float jumppadforce = 10F;
+    public bool jumppad = false;
+
+    //
+    public float Leben = 5;
+    public GameObject Kopf;
+
 
 
 
@@ -38,7 +46,7 @@ public class playerController : MonoBehaviour
         
         
         //Jump
-        if (Input.GetButton("Jump") && isjumping == false)
+        if (Input.GetButton("Jump") && isjumping == false && jumppad == false)
         {
             rb.AddForce(Vector3.up * jumpforce, ForceMode.Impulse);
             isjumping = true;
@@ -47,15 +55,46 @@ public class playerController : MonoBehaviour
         turn.x += Input.GetAxisRaw("Mouse X") * sensitivity;
         transform.localRotation = Quaternion.Euler(0, turn.x, 0);
 
+        //jumppad      
+        if (Input.GetButton("Jump") && isjumping == false && jumppad == true)
+        {
+            rb.AddForce(Vector3.up * jumppadforce, ForceMode.Impulse);
+            isjumping = true;
+        }
+
+        //Leben
+        if ( Leben == 0)
+        {
+            Destroy(gameObject);
+            Debug.Log("reingeschissen");
+            Destroy(Kopf);
+        }
+        
+
     }
     //collisionsdetection
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Boden")
         {
-
+            jumppad = false;
             isjumping = false;
         }
+
+        if( collision.gameObject.tag == "jump pad")
+        {
+            jumppad = true;
+            isjumping = false;
+            Debug.Log("on jumppad");
+        }
+        
+        if (collision.gameObject.tag == "trap")
+        {
+            Leben -= 1;
+            Debug.Log(Leben);
+            isjumping = false;
+        }
+
        
 
     }

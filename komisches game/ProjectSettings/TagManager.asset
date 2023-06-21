@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Boden
+  - jump pad
+  - trap
   layers:
   - Default
   - TransparentFX
