@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ public class playerController : MonoBehaviour
     public float speed = 6f;
     public float jumpforce = 6f;
     
-    private bool onfloor = true;
+    private bool isjumping = true;
 
     private Rigidbody rb;
     void Start()
@@ -20,10 +21,25 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //movement
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
         Vector3 movement = new Vector3(moveHorizontal, 0f, moveVertical);
         rb.AddForce(movement * speed);
+        
+        
+        //Jump
+        if (Input.GetButton("Jump") && isjumping == false)
+        {
+            rb.AddForce(Vector3.up * jumpforce, ForceMode.VelocityChange);
+            isjumping = true;
+        }
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if 
     }
 }
