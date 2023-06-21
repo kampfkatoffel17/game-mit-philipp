@@ -22,6 +22,7 @@ public class playerController : MonoBehaviour
     //
     public float Leben = 5;
     public GameObject Kopf;
+    public GameObject Grabstein;
 
 
 
@@ -68,6 +69,7 @@ public class playerController : MonoBehaviour
             Destroy(gameObject);
             Debug.Log("reingeschissen");
             Destroy(Kopf);
+            
         }
         
 
