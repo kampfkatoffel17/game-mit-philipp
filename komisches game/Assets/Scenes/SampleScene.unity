@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 623f1c02d5c719b42b4d314d8b961048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.03
+  speed: 0.01
   jumpforce: 6
   move: {x: 0, y: 0, z: 0}
   turn: {x: 0, y: 0}

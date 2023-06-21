@@ -30,8 +30,8 @@ public class playerController : MonoBehaviour
     void Update()
     {
         //movement
-        move.x = Input.GetAxis("Horizontal");
-        move.y = Input.GetAxis("Vertical");
+        move.x = Input.GetAxis("Horizontal") * speed;
+        move.y = Input.GetAxis("Vertical") * speed;
 
         transform.Translate(move.x, 0, move.y );
         
