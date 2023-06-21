@@ -23,7 +23,7 @@ public class kopf : MonoBehaviour
         turn.x += Input.GetAxisRaw("Mouse X") * sensitivity;
         turn.y += Input.GetAxisRaw("Mouse Y") * sensitivity;
         transform.localRotation = Quaternion.Euler(-turn.y, turn.x, 0);       
-        transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 1.24F, player.transform.position.z); ;
+        transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 1.37F, player.transform.position.z); ;
         
 
     }

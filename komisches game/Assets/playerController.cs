@@ -87,7 +87,7 @@ public class playerController : MonoBehaviour
         {
             jumppad = true;
             isjumping = false;
-            Debug.Log("on jumppad");
+            
         }
         
         if (collision.gameObject.tag == "trap")
@@ -95,6 +95,7 @@ public class playerController : MonoBehaviour
             Leben -= 1;
             Debug.Log(Leben);
             isjumping = false;
+            jumppad = false;
         }
 
        
