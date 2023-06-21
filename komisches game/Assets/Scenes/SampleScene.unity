@@ -251,11 +251,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 623f1c02d5c719b42b4d314d8b961048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.01
+  speed: 0.02
   jumpforce: 6
   move: {x: 0, y: 0, z: 0}
   turn: {x: 0, y: 0}
-  sensitivity: 0.5
+  sensitivity: 0.75
   rb: {fileID: 603844111}
 --- !u!1 &634189538
 GameObject:
@@ -546,7 +546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turn: {x: 0, y: 0}
-  sensitivity: 0.5
+  sensitivity: 0.75
   player: {fileID: 603844110}
 --- !u!1 &1082533005
 GameObject:
