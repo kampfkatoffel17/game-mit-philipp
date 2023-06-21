@@ -51,7 +51,7 @@ public class playerController : MonoBehaviour
     //collisionsdetection
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Boden")
+        if (collision.gameObject.tag == "Boden")
         {
 
             isjumping = false;

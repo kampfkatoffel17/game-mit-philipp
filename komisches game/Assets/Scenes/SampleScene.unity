@@ -561,8 +561,8 @@ GameObject:
   - component: {fileID: 1082533007}
   - component: {fileID: 1082533006}
   m_Layer: 0
-  m_Name: Boden
-  m_TagString: Untagged
+  m_Name: plane
+  m_TagString: Boden
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
