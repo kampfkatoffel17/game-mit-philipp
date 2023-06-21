@@ -467,7 +467,7 @@ MonoBehaviour:
   move: {x: 0, y: 0, z: 0}
   turn: {x: 0, y: 0}
   sensitivity: 1
-  jumppadforce: 3
+  jumppadforce: 25
   jumppad: 0
   Leben: 5
   Kopf: {fileID: 443841724}
