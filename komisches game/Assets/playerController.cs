@@ -5,6 +5,9 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
     public float speed = 6f;
+    public float jumpforce = 6f;
+    
+    private bool onfloor = true;
 
     private Rigidbody rb;
     void Start()
