@@ -9,6 +9,10 @@ public class playerController : MonoBehaviour
     public float jumpforce = 6f;
     
     private bool isjumping = true;
+    public Vector2 turn;
+    public float sensitivity = 1F;
+
+    
 
     private Rigidbody rb;
     void Start()
@@ -35,11 +39,31 @@ public class playerController : MonoBehaviour
             rb.AddForce(Vector3.up * jumpforce, ForceMode.VelocityChange);
             isjumping = true;
         }
+        // dreht sich bei cameradreh
+        turn.x += Input.GetAxis("Mouse X") * sensitivity;
+        transform.localRotation = Quaternion.Euler(0, turn.x, 0);
 
     }
-
-    private void OnCollisionEnter(Collision collision)
+    //collisionsdetection
+    void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.gameObject.tag == "Boden")
+        {
+
+            isjumping = false;
+        }
+       
+
     }
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Boden")
+        {
+            isjumping = true;
+
+
+        }
+    }
+
+
 }
