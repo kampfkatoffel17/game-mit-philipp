@@ -59,6 +59,10 @@ public class kopf : MonoBehaviour
             }
             pickable = true;
         }
+        else
+        {
+            pickable = false;
+        }
 
         
 
