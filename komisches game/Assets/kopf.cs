@@ -10,6 +10,10 @@ public class kopf : MonoBehaviour
     public Vector2 turn;
     public float sensitivity = .5f;
     public GameObject player;
+    public bool pickable;
+    public float Leben;
+    public bool food;
+    public bool verbraucht;
     //Maus unsichtbar
 
     void Start()
@@ -24,7 +28,38 @@ public class kopf : MonoBehaviour
         turn.y += Input.GetAxisRaw("Mouse Y") * sensitivity;
         transform.localRotation = Quaternion.Euler(-turn.y, turn.x, 0);       
         transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 1.37F, player.transform.position.z); ;
+       
+        if (pickable && Input.GetKeyDown("e"))
+        {
+            if (food)
+            {
+                Leben++;
+                verbraucht = true;
+
+
+            }
+
+        }
+
+
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        pickable = true;
+
+        if (other.gameObject.tag == "Essen")
+        {
+            food = true;
+            Debug.Log("essen");
+            if (verbraucht == true)
+            {
+                Destroy(other.gameObject);
+                verbraucht = false;
+            }
+        }
+
         
 
     }
+    
 }

@@ -23,6 +23,9 @@ public class playerController : MonoBehaviour
     public float Leben = 5;
     public GameObject Kopf;
     public GameObject Grabstein;
+    public bool pickable;
+    public bool food;
+    public bool verbraucht;
 
 
 
@@ -43,6 +46,8 @@ public class playerController : MonoBehaviour
         move.y = Input.GetAxis("Vertical") * speed;
 
         transform.Translate(move.x, 0, move.y);
+        Debug.Log(Leben);
+        
 
 
 
@@ -104,7 +109,25 @@ public class playerController : MonoBehaviour
 
 
     }
-    
+    private void OnTriggerStay(Collider other)
+    {
+        pickable = true;
+        
+        if (other.gameObject.tag == "Essen")
+        {
+
+            Debug.Log("essen");
+            if (verbraucht == true)
+            {
+                Destroy(other.gameObject);
+                verbraucht = false;
+            }
+        }
+
+       
+
+    }
+
     //Tod
     void death ()
     {
@@ -112,6 +135,22 @@ public class playerController : MonoBehaviour
         Destroy(gameObject);
             Destroy(Kopf);
        
+    }
+    
+    void pickup()
+    {
+        if(pickable && Input.GetKeyDown("e"))
+        {
+            if (food)
+            {
+                Leben++;
+                verbraucht = true;
+
+
+            }
+
+        }
+
     }
 
    

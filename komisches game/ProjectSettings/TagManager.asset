@@ -9,6 +9,7 @@ TagManager:
   - trap
   - bullet
   - turret bullet
+  - Essen
   layers:
   - Default
   - TransparentFX
