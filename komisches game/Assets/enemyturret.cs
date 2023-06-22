@@ -42,14 +42,14 @@ public class enemyturret : MonoBehaviour
         {
             if(buffer <= 0)
             {
-                transform.LookAt(spieler);
+                
                 var bullet = Instantiate(bulletmodel, bulletspawnpoint.position, bulletspawnpoint.rotation);
                 bullet.GetComponent<Rigidbody>().velocity = bulletspawnpoint.forward * bulletspeed;
                 buffer = 120F;
             }
             Debug.Log("enemy detected");
-           
 
+            transform.LookAt(spieler);
         }
 
     }
