@@ -33,7 +33,8 @@ public class kopf : MonoBehaviour
         {
             if (food)
             {
-                Leben++;
+                playerController.Leben ++; 
+
                 verbraucht = true;
 
 
@@ -45,7 +46,7 @@ public class kopf : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        pickable = true;
+        
 
         if (other.gameObject.tag == "Essen")
         {
@@ -56,6 +57,7 @@ public class kopf : MonoBehaviour
                 Destroy(other.gameObject);
                 verbraucht = false;
             }
+            pickable = true;
         }
 
         

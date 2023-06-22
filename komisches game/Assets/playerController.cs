@@ -20,24 +20,14 @@ public class playerController : MonoBehaviour
     public bool jumppad = false;
 
     //
-    public float Leben = 5;
+    public static int Leben = 5;
     public GameObject Kopf;
     public GameObject Grabstein;
     public bool pickable;
     public bool food;
     public bool verbraucht;
-
-
-
-
     public Rigidbody rb;
-    void Start()
-    {
-
-
-
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -46,6 +36,7 @@ public class playerController : MonoBehaviour
         move.y = Input.GetAxis("Vertical") * speed;
 
         transform.Translate(move.x, 0, move.y);
+        Debug.Log(Leben);
         
         
 
