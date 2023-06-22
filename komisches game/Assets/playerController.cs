@@ -8,7 +8,7 @@ public class playerController : MonoBehaviour
     public float speed = 6f;
     public float jumpforce = 6f;
     public Vector3 move;
-    
+
     private bool isjumping = true;
 
     //Variablen für drehen
@@ -30,7 +30,7 @@ public class playerController : MonoBehaviour
     public Rigidbody rb;
     void Start()
     {
-       
+
 
 
     }
@@ -42,10 +42,10 @@ public class playerController : MonoBehaviour
         move.x = Input.GetAxis("Horizontal") * speed;
         move.y = Input.GetAxis("Vertical") * speed;
 
-        transform.Translate(move.x, 0, move.y );
-        
-        
-        
+        transform.Translate(move.x, 0, move.y);
+
+
+
         //Jump
         if (Input.GetButton("Jump") && isjumping == false && jumppad == false)
         {
@@ -64,14 +64,12 @@ public class playerController : MonoBehaviour
         }
 
         //Leben
-        if ( Leben == 0)
+        if (Leben == 0)
         {
-            Destroy(gameObject);
-            Debug.Log("reingeschissen");
-            Destroy(Kopf);
-            
+            death();
+
         }
-        
+
 
     }
     //collisionsdetection
@@ -83,27 +81,43 @@ public class playerController : MonoBehaviour
             isjumping = false;
         }
 
-        if( collision.gameObject.tag == "jump pad")
+        if (collision.gameObject.tag == "jump pad")
         {
             jumppad = true;
             isjumping = false;
-            
+
         }
-        
+
         if (collision.gameObject.tag == "trap")
         {
-            Leben -= 1;
-            Debug.Log(Leben);
+            Leben -= 1;           
             isjumping = false;
             jumppad = false;
         }
+        if (collision.gameObject.tag == "turret bullet")
+        {
 
-       
+            Leben -= 1;
+        }
+
+
+
 
     }
     
+    //Tod
+    void death ()
+    {
+        Debug.Log("reingeschissen");
+        Destroy(gameObject);
+            Destroy(Kopf);
+       
+    }
+
+   
+}
   
    
 
 
-}
+
