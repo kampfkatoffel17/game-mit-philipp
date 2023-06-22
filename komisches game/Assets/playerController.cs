@@ -37,6 +37,10 @@ public class playerController : MonoBehaviour
 
         transform.Translate(move.x, 0, move.y);
         Debug.Log(Leben);
+        if(Leben > 5)
+        {
+            Leben = 5;
+        }
         
         
 
