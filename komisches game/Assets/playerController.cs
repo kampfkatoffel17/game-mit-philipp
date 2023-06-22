@@ -68,6 +68,7 @@ public class playerController : MonoBehaviour
 
 
     }
+    
     //collisionsdetection
     void OnCollisionEnter(Collision collision)
     {

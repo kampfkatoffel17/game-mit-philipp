@@ -28,5 +28,6 @@ public class Button : MonoBehaviour
     private void ResetScene()
     {
         SceneManager.LoadScene(sceneName); // Szene neu laden
+        playerController.Leben = 5;
     }
 }
